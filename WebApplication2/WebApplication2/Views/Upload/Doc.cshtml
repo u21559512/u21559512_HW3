@@ -1,0 +1,37 @@
+﻿@using WebApplication2.Models
+@model List<Files>
+
+    @{
+        ViewBag.Title = "Doc";
+    }
+
+    <h4>Documents of any type</h4>
+  <head>
+    <style type="text/css">
+        th{color:white; background:black;   height:30px;}
+        table{width:85%; margin:auto;}
+       
+        table tr{ height:35px;}
+       
+    </style>
+  </head>
+<h5> From the Media -Documents folder</h5>
+<div class="w-100" style="background-color: #eee;">
+    <br/>
+    <table>
+        <tr>
+            <th>File name</th>
+            <th>Download</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (Files fil in Model)
+        {
+    <tr>
+        <td> @fil.FileName</td>
+        <td>@Html.ActionLink("Download", "DownloadFile", new { fileName = fil.FileName }, new { @class = "btn btn-success" })</td>
+        <td>@Html.ActionLink("Delete", "DeleteFile", new { filename = fil.FileName }, new {@class= "btn btn-danger" })</td>
+
+    </tr>
+        }
+    </table>
+</div>

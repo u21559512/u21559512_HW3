@@ -1,0 +1,27 @@
+﻿@using WebApplication2.Models
+@model List<Files>
+@{
+    ViewBag.Title = "Image";
+}
+
+<h2>Image of any file type</h2>
+<head>
+<style type="text/css">
+    
+   
+</style>
+  </head>
+
+<div class="w-100" style="background-color: #eee;">
+    <br /><br />
+    <div class="row">
+        @foreach (Files fil in Model)
+
+        {<div class="col col-md-4">
+             <div class="card" style="width: 18rem;">
+                 <img width="260" height="180" class="card-img-top" src="@Url.Content("~/Media/Images/")@fil.FileName" alt="Card image cap">
+                 <h6>@fil.FileName</h6>
+                 @Html.ActionLink("Download", "DownloadImage", new { fileName = fil.FileName }, new { @class = "btn btn-success" })
+                 @Html.ActionLink("Delete", "DeleteImage", new { filename = fil.FileName }, new { @class = "btn btn-danger" })
+             </div></div>}
+</div></div>

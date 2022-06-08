@@ -1,0 +1,36 @@
+﻿@using WebApplication2.Models
+@model List<Files>
+
+@{
+    ViewBag.Title = "Vid";
+}
+<head>
+<style type="text/css">
+
+</style>
+</head>
+<h2>Video Files</h2>
+<h5>........."Media/Videos" folder</h5>
+<div class="w-100" style="background-color: #eee;">
+    <br /> 
+
+
+
+    <div class="row">
+
+        @foreach (Files fil in Model)
+        {
+
+            <div class="col col-md-4">
+                <div class="card" style="width: 18rem; ">
+                    <video width="320" height="240" controls><source src="@Url.Content("~/Media/Vid/")@fil.FileName" type="video/mp4" /></video>
+                    <h6>@fil.FileName</h6>
+                    @Html.ActionLink("Download", "DownloadVid", new { fileName = fil.FileName }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "DeleteVid", new { filename = fil.FileName }, new { @class = "btn btn-danger" })
+
+                </div>
+            </div>
+
+        }
+        </div>
+    </div> 

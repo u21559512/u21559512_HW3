@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+
+
+
+<h3>Mymedia</h3>
+<h4>Something about the program</h4>
+
+<div class="w-50" style="background-color: #eee;">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <h3>Desciption</h3>
+            <p>
+                This program is allows you to sleect any media you want. You can select media such a  a picture or video or file you want to upload.
+                This could any file you want from your folder . The next pages you either view your files or images or documents are displayed. They will be saved
+                on the server so you don't lose them.Your files will saved in a list  in the files page. Your other items like your images will be displayed on the
+                Images pages where your images will be displayed properly. Your vidoes will displayed properly in the vidoes page. The last page is about me the person
+                that created the program , it will be brief introduction about me.
+            </p>
+
+          
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+            <h2>Option selection</h2>
+            @using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    <label>Document</label> @Html.RadioButton("Answer", "Document")<br />
+                    <label>Image</label> @Html.RadioButton("Answer", "Image")<br />
+                    <label>Video</label>@Html.RadioButton("Answer", "Video")<br />
+                </div>
+                <div>
+                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                    <input type="submit" value="Upload" />
+                    @ViewBag.Message
+                </div>
+            }
+            
+        </div>
+    </div>
+    </div>
